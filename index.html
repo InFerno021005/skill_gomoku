@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill Gomoku</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom Animations for Skills */
+      
+      /* New "Flying Sand" Throw Effect - Faster and follows a trajectory */
+      @keyframes throwOut {
+        0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+        100% { transform: translate(30px, -100px) scale(0.5) rotate(90deg); opacity: 0; }
+      }
+      .animate-throw-out {
+        animation: throwOut 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+      }
+
+      /* Subtle entry instead of bounce */
+      @keyframes subtleScale {
+        0% { transform: scale(0.9); opacity: 0.8; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      .animate-place-piece {
+        animation: subtleScale 0.15s ease-out forwards;
+      }
+
+      @keyframes slideOffRight {
+        0% { transform: translateX(0); opacity: 1; }
+        100% { transform: translateX(100vw) rotate(10deg); opacity: 0; }
+      }
+      .animate-slide-off {
+        animation: slideOffRight 0.8s ease-in forwards;
+      }
+
+      @keyframes shake {
+        0%, 100% { transform: translate(0, 0); }
+        10%, 30%, 50%, 70%, 90% { transform: translate(-5px, 0); }
+        20%, 40%, 60%, 80% { transform: translate(5px, 0); }
+      }
+      .animate-shake-screen {
+        animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+      }
+
+      @keyframes ripple {
+        0% { transform: scale(1); filter: blur(0px); }
+        50% { transform: scale(1.02); filter: blur(2px) hue-rotate(90deg); }
+        100% { transform: scale(1); filter: blur(0px); }
+      }
+      .animate-ripple {
+        animation: ripple 0.6s ease-out;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
